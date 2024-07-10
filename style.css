@@ -27,6 +27,7 @@ header{
 h3{
     padding: 20px 500px;
     color: antiquewhite;
+    letter-spacing: 3px;
 }
 .calculator{
     background: linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,.5));
