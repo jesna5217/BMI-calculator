@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <header>
+        <h3>BMI CALCULATOR</h3>
+    </header>
+    <div class="container"> 
+<div class="calculator">
+    <div class="content">
+   <label for="">GENDER : </label>
+   <input type="radio" name="gender" class="gender">
+   <label for=""> Female</label>
+   <input type="radio" name="gender" class="gender">
+   <label for=""> Male</label>
+   <br>
+   <br>
+   <br>
+   <label for="">WEIGHT :</label>
+   <input type="text" class="gender label" placeholder="in kg" id="weight">
+   <br>
+   <br>
+   <br>
+   <label for="">HEIGHT :</label>
+   <input type="text" class="gender label" placeholder="in cm" id="height">
+<br><br><br>
+<button onclick="findBmi()" type="button">CALCULATE</button>
+<button type="button" onclick="reset()">RESET</button>
+</div>
+<div class="result">
+    <h1>Your BMI is</h1>
+    <br><br>
+    <h2 id="resultValue">0</h2>
+    <p id="comment"></p>
+    <br><br>
+</div>
+ </div>
+  </div>
+
+</body>
+<script>
+function findBmi(){
+ let  height=document.getElementById('height').value;
+  let weight=document.getElementById('weight').value;
+  let realHeight=height/100;
+
+if(height=='' || weight==''|| isNaN(height) || isNaN(weight)){
+ alert('Enter a valid value')
+}
+else{
+const bmi=weight/(realHeight*realHeight)
+localStorage.setItem('bmi',bmi);
+bmiValue=localStorage.getItem('bmi')
+resultValue.innerHTML=bmi.toFixed(2);
+if(bmi<18.5){
+comment.innerHTML='Under Weight'
+}
+else if(bmi >= 18.5 && bmi <= 24.9){
+comment.innerHTML='Normal Weight'
+}
+else{
+    comment.innerHTML='Over Weight'
+}
+
+}
+}
+function reset(){
+    height.value='';
+    weight.value='';
+  resultValue.innerHTML='0'
+  comment.innerHTML='';
+    
+}
+</script>
+</html>
